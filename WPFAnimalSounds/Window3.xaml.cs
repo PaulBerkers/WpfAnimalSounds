@@ -55,13 +55,32 @@ namespace WPFAnimalSounds
             animals.Add(goat);
         }
 
-        private void btnPlayNoise_Click(object sender, RoutedEventArgs e)
+        private async void btnPlayNoise_Click(object sender, RoutedEventArgs e)
         {
-            foreach (IAnimal animal in animals)
-            {
-                animal.MakeSomeNoise();
-            }
+            //foreach (IAnimal animal in animals)
+            //{
+            //    animal.MakeSomeNoise();
+            //}
             //Als sound finished dan: enable buttons weer en maak list leeg.
+            await MakeSomeNoiseHere("sounds/Goat-noise.mp3");
+            await MakeSomeNoiseHere("sounds/dogs.mp3");
+            await MakeSomeNoiseHere("sounds/cow.mp3");
+        }
+
+        private async Task<bool>MakeSomeNoiseHere(string sMySound)
+        {
+            var tcs = new TaskCompletionSource<bool> ();
+            MediaPlayer mediaplayer = new MediaPlayer();
+            mediaplayer.MediaEnded += (sender, e) =>
+            {
+                mediaplayer.Close();
+                tcs.TrySetResult(true);
+            };
+
+            mediaplayer.Open(new Uri(sMySound, UriKind.Relative));
+            mediaplayer.Play();
+
+            return await tcs.Task;
         }
     }
 }
