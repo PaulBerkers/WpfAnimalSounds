@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPFAnimalSounds
 {
-    interface IAnimal
+    public interface IAnimal
     {
         string Specie { get; set; }
         string Name { get; set; }
@@ -14,6 +14,5 @@ namespace WPFAnimalSounds
         string Says();
         void MakeSomeNoise();
 
-        
     }
 }
