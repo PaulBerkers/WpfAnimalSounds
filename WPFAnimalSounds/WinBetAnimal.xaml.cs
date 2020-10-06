@@ -53,7 +53,7 @@ namespace WPFAnimalSounds
                     SelectedAnimal = "Chicken";
                     break;
                 case "imggoat":
-                    SoundToPlay = "goat.mp3";
+                    SoundToPlay = "Goat-noise.mp3";
                     SelectedAnimal = "Goat";
                     break;
                 case "imghorse":
@@ -96,9 +96,21 @@ namespace WPFAnimalSounds
 
             this.Hide();
             WinConfirmAnimal winConf = new WinConfirmAnimal(animals, SelectedAnimal);
-            winConf.Show();
+            winConf.Confirmed += WinConf_Confirmed;
+            winConf.ShowDialog();
 
             this.Show();
+        }
+
+        private void WinConf_Confirmed()
+        {
+            //De lijst opbouwen dmv plaatje
+            //Reflection: maak class van string en voeg deze class toe aan de lijst
+            Type animalType = Type.GetType($"WPFAnimalSounds.{SelectedAnimal}, WPFAnimalSounds");
+            IAnimal instanceObject = (IAnimal)(Activator.CreateInstance(animalType));
+
+            animals.Add(instanceObject);
+            
         }
     }
 }

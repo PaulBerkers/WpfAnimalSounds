@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFAnimalSounds"
         mc:Ignorable="d"
-        Title="WinConfirmAnimal" Height="450" Width="800">
+        Title="WinConfirmAnimal" Height="800" Width="800">
     <Grid x:Name="grdWin">
         <StackPanel>
             <Grid x:Name="grdCenter">
@@ -27,7 +27,7 @@
                 <WrapPanel x:Name="wrapOkCancel" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center">
                     <Image Source="/images/ok.png" Tag="imgOk" Width="30" Height="30" MouseDown="Image_MouseDown" Cursor="Hand" ToolTip="Confirm"/>
                     <Label Width="30"/>
-                    <Image Source="/images/err.png" Tag="imgErr" Width="30" Height="30" MouseDown="Image_MouseDown" Cursor="Hand" ToolTip="Cancel"/>
+                    <Image Source="/images/err.png" Tag="imgErr" Width="30" Height="30" MouseDown="ImgDel_MouseDown" Cursor="Hand" ToolTip="Cancel"/>
                 </WrapPanel>
 
             </Grid>

@@ -55,10 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Chicken.cs" />
     <Compile Include="Cow.cs" />
     <Compile Include="Dog.cs" />
+    <Compile Include="Duck.cs" />
     <Compile Include="Goat.cs" />
+    <Compile Include="Horse.cs" />
     <Compile Include="IAnimal.cs" />
+    <Compile Include="Pig.cs" />
+    <Compile Include="Rooster.cs" />
     <Compile Include="WinBetAnimal.xaml.cs">
       <DependentUpon>WinBetAnimal.xaml</DependentUpon>
     </Compile>
