@@ -109,8 +109,20 @@ namespace WPFAnimalSounds
             Type animalType = Type.GetType($"WPFAnimalSounds.{SelectedAnimal}, WPFAnimalSounds");
             IAnimal instanceObject = (IAnimal)(Activator.CreateInstance(animalType));
 
-            animals.Add(instanceObject);
-            
+            if (animals.Count < 4)
+            {
+                animals.Add(instanceObject);
+            }
+
+            btnAnimalsChosen.IsEnabled = animals.Count < 4 ? false : true;
+
+        }
+
+        private void btnAnimalsChosen_Click(object sender, RoutedEventArgs e)
+        {
+            WinBet winBet = new WinBet(animals);
+            winBet.Show();
+            this.Close();
         }
     }
 }

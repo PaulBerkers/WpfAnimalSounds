@@ -1,0 +1,101 @@
+﻿<Window x:Class="WPFAnimalSounds.WinBet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:local="clr-namespace:WPFAnimalSounds"
+        mc:Ignorable="d"
+        Title="WinBet" Height="950" Width="1200" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid Name="gdAudience" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Name="imgAudienceLeft" Grid.Column="0" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="Images/audiencemiddle.gif" Stretch="Fill" />
+            <Image Grid.Column="1" Source="Images/emptystairs.JPG" Stretch="Fill"/>
+            <Image Name="imgAudienceMiddle" Grid.Column="2" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="Images/jump.gif" Stretch="Fill"/>
+            <Image Grid.Column="3" Source="Images/emptystairs.JPG" Stretch="Fill"/>
+            <Image Name="imgAudienceRight" Grid.Column="4" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="images/audiencemiddle.gif" Stretch="Fill"/>
+        </Grid>
+
+        <Grid Name="gdGrassTop" Grid.Row="1" >
+            <Image Source="Images/grass.JPG" Stretch="Fill"/>
+        </Grid>
+
+        <Grid Name="gdTrack" Grid.Row="2" Background="Turquoise" Height="200" VerticalAlignment="Top">
+            <Image Name="racetrack" Source="Images/racetrack.png" Stretch="Fill" />
+
+            <Canvas Name="cvTrack" Grid.Row="2" >
+                <!-- ToDo: Replace by List of Animals and binding-->
+                <Image x:Name="imgAnimal1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" Margin="50,0,0,0" Visibility="Hidden"/>
+                <Image x:Name="imgAnimal2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" Margin="50,60,0,0" Visibility="Hidden"/>
+                <Image x:Name="imgAnimal3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" Margin="50,120,0,0" Visibility="Hidden"/>
+                <Image x:Name="imgAnimal4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" Margin="50,170,0,0" Visibility="Hidden"/>
+
+                <!--<ItemsControl x:Name="AnimalBox" ItemsSource="{Binding RacingAnimals}" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding ImgAnimal}" Margin="{Binding ImgMargin}" Width="60" Height="60"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>-->
+            </Canvas>
+        </Grid>
+
+        <Grid Name="gdGrassDown" Grid.Row="3">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Images/grass2.JPG" Stretch="Fill"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="140"/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="The players are:"  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="10" FontSize="30" Foreground="Blue" FontWeight="Bold" VerticalAlignment="Center" />
+            <Label Content="Your score:"  Grid.Row="0" Grid.Column="6" FontSize="30" Foreground="Blue" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            <!--<Canvas Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="2" Background="WhiteSmoke" Opacity=".6" Panel.ZIndex="1" />-->
+
+            <RadioButton Name="rbWin1" GroupName="rbWin" Grid.Row="2" Grid.Column="1" Content="WINNER #1" HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="Blue" Checked="rbWin1_Checked"/>
+            <RadioButton Name="rbWin2" GroupName="rbWin" Grid.Row="2" Grid.Column="2" Content="WINNER #2" HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="Blue" Checked="rbWin2_Checked"/>
+            <RadioButton Name="rbWin3" GroupName="rbWin" Grid.Row="2" Grid.Column="3" Content="WINNER #3" HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="Blue" Checked="rbWin3_Checked"/>
+            <RadioButton Name="rbWin4" GroupName="rbWin" Grid.Row="2" Grid.Column="4" Content="WINNER #4" HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="Blue" Checked="rbWin4_Checked"/>
+
+            <Label x:Name="lblScore" Content="100" Grid.Row="1" Grid.Column="6" FontSize="156" Foreground="Red" FontWeight="Bold"  HorizontalAlignment="Center" Margin="-50" />
+
+            <WrapPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <TextBox x:Name="txtMoney" Width="80" Height="32" Text="0" IsReadOnly="True" FontSize="16" VerticalContentAlignment="Center" TextAlignment="Right" Margin="0,-2,-1,0"/>
+                <StackPanel Orientation="Vertical" Height="34" Width="40">
+                    <Button x:Name="cmdMoneyUp" Content="˄"  Click="cmdMoneyUp_Click" VerticalContentAlignment="Center" Height="16"/>
+                    <Button x:Name="cmdMoneDown" Content="˅" Click="cmdMoneDown_Click" VerticalContentAlignment="Center" Height="16" />
+                </StackPanel>
+            </WrapPanel>
+
+            <Button x:Name="btnStartRace" Grid.Row="1" Grid.Column="9" Content="Start Race !" HorizontalAlignment="Right" Margin="0,0,40,20" Width="400" Height="96" Click="btnStartRace_Click" FontSize="24"  IsEnabled="False"/>
+
+        </Grid>
+    </Grid>
+</Window>

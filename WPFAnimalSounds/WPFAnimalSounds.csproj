@@ -49,6 +49,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.0\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -64,6 +67,9 @@
     <Compile Include="IAnimal.cs" />
     <Compile Include="Pig.cs" />
     <Compile Include="Rooster.cs" />
+    <Compile Include="WinBet.xaml.cs">
+      <DependentUpon>WinBet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinBetAnimal.xaml.cs">
       <DependentUpon>WinBetAnimal.xaml</DependentUpon>
     </Compile>
@@ -91,6 +97,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WinBet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinBetAnimal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -130,6 +140,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -153,6 +164,17 @@
     <Resource Include="images\animals\rooster.jpg" />
     <Resource Include="images\err.png" />
     <Resource Include="images\ok.png" />
+    <Resource Include="images\animalrace.jpg" />
+    <Resource Include="images\audience.jpg" />
+    <Resource Include="images\audienceleft.gif" />
+    <Resource Include="images\audiencemiddle.gif" />
+    <Resource Include="images\audienceright.gif" />
+    <Resource Include="images\emptystairs.JPG" />
+    <Resource Include="images\grass.JPG" />
+    <Resource Include="images\grass2.JPG" />
+    <Resource Include="images\jump.gif" />
+    <Resource Include="images\racetrack.png" />
+    <Resource Include="images\source.gif" />
     <Content Include="sounds\bull.mp3" />
     <Content Include="sounds\cat.mp3" />
     <Content Include="sounds\chicken.mp3" />

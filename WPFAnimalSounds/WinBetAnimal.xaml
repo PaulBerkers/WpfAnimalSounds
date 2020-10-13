@@ -41,7 +41,7 @@
         <Image Source="/images/animals/rooster.jpg" Tag="imgrooster"  Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseDown="Animal_Clicked" Cursor="Hand"/>
         <Image Source="/images/animals/duck1.jpg" Tag="imgduck1"  Grid.Row="5" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseDown="Animal_Clicked" Cursor="Hand"/>
         <Image Source="/images/animals/pig.jpg" Tag="imgpig" Grid.Row="5" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseDown="Animal_Clicked" Cursor="Hand"/>
-        <Button x:Name="btnAnimalsChosen" Content="Candidates completed, let's run!" Grid.Row="7" Grid.Column="0" Background="Beige" Grid.ColumnSpan="9" FontWeight="Bold" FontSize="18" Foreground="Green"/>
+        <Button x:Name="btnAnimalsChosen" Content="Candidates completed, let's run!" Grid.Row="7" Grid.Column="0" Background="Beige" Grid.ColumnSpan="9" IsEnabled="False" FontWeight="Bold" FontSize="18" Foreground="Green" Click="btnAnimalsChosen_Click"/>
 
     </Grid>
 </Window>
